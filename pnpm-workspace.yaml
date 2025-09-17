@@ -1,2 +1,5 @@
 onlyBuiltDependencies:
   - esbuild
+
+patchedDependencies:
+  sequelize-cli: patches/sequelize-cli.patch

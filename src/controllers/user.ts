@@ -5,7 +5,7 @@ import { Context } from 'koa'
 
 import { HASH_SALT, JWT_SECRET } from '@/env'
 import User from '@/models/User'
-import { ApiError } from '@/utils/apiError'
+import { ApiError } from '@/utils/ApiError'
 import { setResponse, validateAndGetBody } from '@/utils/controller'
 
 const JWT_EXPIRES_IN = '24h'

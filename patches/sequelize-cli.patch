@@ -1,0 +1,13 @@
+diff --git a/lib/core/migrator.js b/lib/core/migrator.js
+index 0fcc51a157e10891e55b814b27ad5f00a4ea315d..1cb9bfef22707bb532619f7d3cc7c7f8565608cf 100644
+--- a/lib/core/migrator.js
++++ b/lib/core/migrator.js
+@@ -29,7 +29,7 @@ function getSequelizeInstance() {
+     logging: logMigrator
+   });
+   try {
+-    return new Sequelize(config);
++    return new Sequelize(process.env.DATABASE_URL, config);
+   } catch (e) {
+     _index.default.view.error(e);
+   }

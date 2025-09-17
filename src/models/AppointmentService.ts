@@ -1,4 +1,4 @@
-import { BOOLEAN, INTEGER, STRING, TEXT, UUID } from 'sequelize'
+import { BOOLEAN, DATE, INTEGER, STRING, TEXT, UUID } from 'sequelize'
 import {
   Column,
   CreatedAt,
@@ -53,11 +53,13 @@ class AppointmentService extends Model {
 
   @NotNull
   @CreatedAt
-  creationDate: Date
+  @Column(DATE)
+  declare createdAt: Date
 
   @NotNull
   @UpdatedAt
-  updatedOn: Date
+  @Column(DATE)
+  declare updatedAt: Date
 }
 
 export default AppointmentService

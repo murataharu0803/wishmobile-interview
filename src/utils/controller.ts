@@ -2,7 +2,7 @@ import Joi from 'joi'
 import { Context, Next } from 'koa'
 
 import { DEV } from '@/env'
-import { ApiError } from '@/utils/apiError'
+import { ApiError } from '@/utils/ApiError'
 import console from '@/utils/logger'
 
 // eslint-disable-next-line @typescript-eslint/no-explicit-any

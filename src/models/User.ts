@@ -1,5 +1,5 @@
 import Joi from 'joi'
-import { STRING } from 'sequelize'
+import { DATE, STRING, UUID } from 'sequelize'
 import {
   Column,
   CreatedAt,
@@ -7,6 +7,7 @@ import {
   Model,
   NotNull,
   PrimaryKey,
+  Unique,
   UpdatedAt,
 } from 'sequelize-typescript'
 
@@ -15,11 +16,12 @@ import JoiValidate from '@/utils/JoiValidate'
 class User extends Model {
   @IsUUID(4)
   @PrimaryKey
-  @Column
+  @Column(UUID)
   declare id: string
 
   @JoiValidate(Joi.string().email())
   @NotNull
+  @Unique
   @Column(STRING(255))
   email: string
 
@@ -33,11 +35,13 @@ class User extends Model {
 
   @NotNull
   @CreatedAt
-  creationDate: Date
+  @Column(DATE)
+  declare createdAt: Date
 
   @NotNull
   @UpdatedAt
-  updatedOn: Date
+  @Column(DATE)
+  declare updatedAt: Date
 }
 
 export default User
