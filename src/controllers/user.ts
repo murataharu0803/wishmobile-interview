@@ -3,7 +3,7 @@ import Joi from 'joi'
 import jwt from 'jsonwebtoken'
 import { Context } from 'koa'
 
-import { HASH_SALT, JWT_SECRET } from '@/env'
+import { JWT_SECRET } from '@/env'
 import User from '@/models/User'
 import { ApiError } from '@/utils/ApiError'
 import { setResponse, validateAndGetBody } from '@/utils/controller'
@@ -28,7 +28,7 @@ export const register = async(ctx: Context) => {
   // Create user
   const user = await User.create({
     email,
-    password: await bcrypt.hash(password, HASH_SALT),
+    password: await bcrypt.hash(password, 10),
     name,
   })
 

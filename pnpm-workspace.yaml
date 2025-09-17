@@ -1,5 +1,7 @@
 onlyBuiltDependencies:
   - esbuild
+  - unrs-resolver
 
 patchedDependencies:
-  sequelize-cli: patches/sequelize-cli.patch
+  sequelize-cli: /Users/harlos/projects/wish-interview/patches/sequelize-cli.patch
+  sequelize: patches/sequelize.patch

@@ -21,8 +21,6 @@
     "experimentalDecorators": true,
     "jsx": "preserve",
     "lib": [
-      "DOM",
-      "DOM.AsyncIterable",
       "ESNext",
       "ESNext.AsyncIterable"
     ],
@@ -34,25 +32,20 @@
     "moduleDetection": "force",
     "noUncheckedSideEffectImports": true,
     "emitDecoratorMetadata": true,
-    "types": ["@types/node"],
+    "types": ["@types/node", "jest"],
     "baseUrl": ".",
     "paths": {
       "@/*": [
         "./src/*"
-      ],
-      "~/*": [
-        "./*"
-      ],
+      ]
     }
   },
   "include": [
     "**/*.json",
     "**/*.ts",
-    "**/*.tsx",
     "**/*.d.ts"
   ],
   "exclude": [
-    "node_modules",
-    "dist"
+    "node_modules"
   ]
 }

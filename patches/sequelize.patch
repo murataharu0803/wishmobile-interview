@@ -1,0 +1,34 @@
+diff --git a/lib/errors/database-error.js b/lib/errors/database-error.js
+index c913748522f4d822ff24c4e5900cd573a6190e37..acab6841ac19133bc7619daee28d3a25e54b0280 100644
+--- a/lib/errors/database-error.js
++++ b/lib/errors/database-error.js
+@@ -44,7 +44,11 @@ class DatabaseError extends import_base_error.default {
+     this.sql = parent.sql;
+     this.parameters = (_a = parent.parameters) != null ? _a : {};
+     if (options.stack) {
+-      this.stack = options.stack;
++      this.stack = [
++        this.stack,
++        'From original error:',
++        options.stack.split('\n').slice(1).join('\n'),
++      ].join('\n');
+     }
+   }
+ }
+diff --git a/lib/errors/validation-error.js b/lib/errors/validation-error.js
+index 0b28a60a8112252c40b66f61c0aebae445661d54..1873b5ebc1fded1258126ecaa458bf1bad961320 100644
+--- a/lib/errors/validation-error.js
++++ b/lib/errors/validation-error.js
+@@ -115,7 +115,11 @@ class ValidationError extends import_base_error.default {
+       this.message = this.errors.map((err) => `${err.type || err.origin}: ${err.message}`).join(",\n");
+     }
+     if (options.stack) {
+-      this.stack = options.stack;
++      this.stack = [
++        this.stack,
++        'From original error:',
++        options.stack.split('\n').slice(1).join('\n'),
++      ].join('\n');
+     }
+   }
+   get(path) {

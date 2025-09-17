@@ -26,7 +26,7 @@ export const errorHandler = async(ctx: Context, next: Next) => {
 }
 
 export const validateAndGetBody = <T>(ctx: Context, schema: Joi.ObjectSchema<T>) => {
-  const { error, value } = schema.validate(ctx.body)
+  const { error, value } = schema.validate(ctx.request.body)
   if (error) throw new ApiError(400, error.details[0].message)
   return value as T
 }

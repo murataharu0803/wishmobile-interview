@@ -1,5 +1,6 @@
 
 import Koa from 'koa'
+import body from 'koa-bodyparser'
 import json from 'koa-json'
 
 import router from '@/router'
@@ -8,6 +9,7 @@ import { logger } from '@/utils/logger'
 
 const koaServer = new Koa()
 
+koaServer.use(body())
 koaServer.use(json())
 koaServer.use(logger)
 koaServer.use(errorHandler)
