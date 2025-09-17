@@ -38,7 +38,7 @@ describe('Service Controller', () => {
     await db.close()
   })
 
-  describe('GET /service', () => {
+  describe('GET /service/all', () => {
     beforeEach(async() => {
       await AppointmentService.bulkCreate([
         {
