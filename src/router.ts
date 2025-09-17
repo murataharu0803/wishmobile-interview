@@ -18,7 +18,7 @@ userRouter.post('/login', login)
 router.use('/user', userRouter.routes(), userRouter.allowedMethods())
 
 const serviceRouter = new Router()
-serviceRouter.get('/', listPublicServices)
+serviceRouter.get('/all', listPublicServices)
 serviceRouter.get('/:id', getPublicService)
 serviceRouter.post('/', auth, createService)
 serviceRouter.put('/:id', auth, updateService)

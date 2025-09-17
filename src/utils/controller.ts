@@ -21,7 +21,7 @@ export const errorHandler = async(ctx: Context, next: Next) => {
       ? err instanceof Error ? err.message : String(err)
       : err instanceof ApiError ? err.message : 'unknown error'
     ctx.status = status
-    ctx.body = htmlMsg
+    ctx.body = { error: htmlMsg }
   }
 }
 

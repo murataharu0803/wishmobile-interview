@@ -12,7 +12,7 @@ export const listPublicServices = async(ctx: Context) => {
       isPublic: true,
       isRemove: false,
     },
-    order: [['order', 'ASC'], ['creationDate', 'DESC']],
+    order: [['order', 'ASC'], ['createdAt', 'DESC']],
     attributes: { exclude: ['isRemove'] },
   })
 

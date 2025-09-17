@@ -48,12 +48,12 @@ module.exports = {
         defaultValue: true,
         comment: '是否公開於 Client',
       },
-      creationDate: {
+      createdAt: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
       },
-      updatedOn: {
+      updatedAt: {
         type: Sequelize.DATE,
         allowNull: false,
         defaultValue: Sequelize.NOW,
